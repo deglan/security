@@ -42,7 +42,8 @@ public class SecurityConfig {
         http.csrf(csrf ->
                 csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                         .ignoringRequestMatchers("/api/auth/public/**")
-                        .ignoringRequestMatchers("/oauth2/**")
+                        .ignoringRequestMatchers("/**")
+
         );
         http.authorizeHttpRequests((requests)
                         -> requests
