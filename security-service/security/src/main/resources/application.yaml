@@ -1,7 +1,7 @@
 spring:
   app:
     jwtSecret: ${secret.jwt.secret}
-    jwtExpirationMs: 3000000
+    jwtExpirationMs: 300000000
   security:
     oauth2:
       client:
