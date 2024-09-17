@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  security-database:
+    image: mysql:latest
+    restart: always
+    container_name: security-database
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: 'mysql-security'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+    volumes:
+      - security-database-data:/var/lib/mysql
+    networks:
+      - security
+networks:
+  security:
+    driver: bridge
+volumes:
+  security-database-data:

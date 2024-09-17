@@ -1,0 +1,1 @@
+psql -U clinic -tc "SELECT 1 FROM pg_database WHERE datname = 'clinic'" | grep -q 1 || psql -U clinic -c "CREATE DATABASE USER_ACCOUNT"

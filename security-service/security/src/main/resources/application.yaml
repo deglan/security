@@ -1,0 +1,46 @@
+spring:
+  app:
+    jwtSecret: ${secret.jwt.secret}
+    jwtExpirationMs: 3000000
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: ${secret.github.client.id}
+            client-secret: ${secret.github.client.secret}
+            scope:
+              - read:user
+              - user:email
+    user:
+      name: admin
+      password: ${secret.datasource.password}
+  datasource:
+    url: jdbc:mysql://localhost:3306/mysql-security
+    username: root
+    password: ${secret.datasource.password}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: zgorzalyj@gmail.com
+    password: ${secret.mail.password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+frontend:
+  url: http://localhost:8080/
